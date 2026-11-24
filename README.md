@@ -11,3 +11,5 @@ Entry line:
 > Senior Vice President of Apologising to the Printer
 
 Run it with: `node main.ts`
+
+Gate: one job title of 1 to 60 characters.

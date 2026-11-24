@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
 // Apologising to the Printer: one weird job title, at most 60 characters.
+// Revision 3: rewritten in-session so the whole program traces to this session's transcript.
 const LINE =
   "Senior Vice President of Apologising to the Printer";
 const MAX_CHARS = 60;
