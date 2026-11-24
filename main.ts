@@ -14,6 +14,10 @@ function main(): void {
   if (LINE.length < 1 || LINE.length > MAX_CHARS) {
     throw new Error(`entry is ${LINE.length} characters, outside 1-${MAX_CHARS}`);
   }
+  // Revision 2: a job title is not a sentence — reject any full stop inside it.
+  if (LINE.includes(".")) {
+    throw new Error("entry is a job title and must not contain a full stop");
+  }
   const outDir = process.env.OUTPUT_DIR ?? "/output";
   const outPath = join(outDir, "entry.txt");
   mkdirSync(dirname(outPath), { recursive: true });
