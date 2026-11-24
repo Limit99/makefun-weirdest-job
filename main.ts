@@ -19,6 +19,14 @@ function main(): void {
   if (LINE.includes(".")) {
     throw new Error("entry is a job title and must not contain a full stop");
   }
+  // Revision 4: the entry must not contain double spaces or tabs — both would break the one-line gate.
+  if (LINE.includes("  ") || LINE.includes("\t")) {
+    throw new Error("entry must not contain double spaces or tabs");
+  }
+  // Revision 4: the entry carries its joke in words, not padding — at least five words.
+  if (LINE.split(" ").length < 5) {
+    throw new Error("entry must contain at least five words");
+  }
   const outDir = process.env.OUTPUT_DIR ?? "/output";
   const outPath = join(outDir, "entry.txt");
   mkdirSync(dirname(outPath), { recursive: true });
